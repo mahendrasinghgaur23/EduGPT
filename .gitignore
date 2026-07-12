@@ -1,0 +1,17 @@
+# Local Environment variables
+.env
+
+# Python build/cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Streamlit config/runtime files
+.streamlit/
+
+# OS specific files
+.DS_Store
+Thumbs.db
