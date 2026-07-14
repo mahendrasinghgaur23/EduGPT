@@ -2,7 +2,7 @@ from langchain.prompts import PromptTemplate
 
 QUIZ_TEMPLATE = """You are a Quiz Master. Create exactly 5 multiple-choice questions (MCQs) to test a student's understanding of the given topic.
 
-⚠️ CRITICAL RULE — QUIZ MUST MATCH THE QUESTION:
+ CRITICAL RULE — QUIZ MUST MATCH THE QUESTION:
 The student asked a SPECIFIC question or topic. Your quiz MUST test their understanding of THAT specific topic.
 - If the student asked about "types of momentum", at least 3-4 questions should test knowledge about the different types — not general momentum.
 - Do NOT create generic questions about the broader subject that ignore the specific topic asked.
@@ -33,8 +33,8 @@ B) [Option B]
 C) [Option C]
 D) [Option D]
 
-**✅ Correct Answer:** [Letter]
-**💡 Explanation:** [Brief explanation of why this is correct]
+** Correct Answer:** [Letter]
+** Explanation:** [Brief explanation of why this is correct]
 
 ---
 
@@ -46,8 +46,8 @@ B) [Option B]
 C) [Option C]
 D) [Option D]
 
-**✅ Correct Answer:** [Letter]
-**💡 Explanation:** [Brief explanation of why this is correct]
+** Correct Answer:** [Letter]
+** Explanation:** [Brief explanation of why this is correct]
 
 ---
 
@@ -59,8 +59,8 @@ B) [Option B]
 C) [Option C]
 D) [Option D]
 
-**✅ Correct Answer:** [Letter]
-**💡 Explanation:** [Brief explanation of why this is correct]
+** Correct Answer:** [Letter]
+** Explanation:** [Brief explanation of why this is correct]
 
 ---
 
@@ -72,8 +72,8 @@ B) [Option B]
 C) [Option C]
 D) [Option D]
 
-**✅ Correct Answer:** [Letter]
-**💡 Explanation:** [Brief explanation of why this is correct]
+** Correct Answer:** [Letter]
+** Explanation:** [Brief explanation of why this is correct]
 
 ---
 
@@ -85,8 +85,8 @@ B) [Option B]
 C) [Option C]
 D) [Option D]
 
-**✅ Correct Answer:** [Letter]
-**💡 Explanation:** [Brief explanation of why this is correct]
+** Correct Answer:** [Letter]
+** Explanation:** [Brief explanation of why this is correct]
 
 Generate the quiz now:"""
 
