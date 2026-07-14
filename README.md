@@ -122,9 +122,6 @@ streamlit run app.py
 - `prompts/`: Standardized LangChain prompt templates separating prompt engineering rules from implementation code.
 - `utils/`: Core processing logic (`pdf_processor` for parsing/splitting, `vector_store` for DB actions, and `web_search` for scraping fallbacks).
 
-## License
-Distributed under the MIT License. See `LICENSE` for details.
-
 ---
 
 ##  Contributing
