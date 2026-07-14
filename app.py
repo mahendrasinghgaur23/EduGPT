@@ -13,9 +13,7 @@ from agents.summarizer import summarize
 from agents.explainer import explain
 from agents.quiz_generator import generate_quiz
 
-# ─────────────────────────────────────────────
 # Page Configuration
-# ─────────────────────────────────────────────
 st.set_page_config(
     page_title="EduGPT — AI Study Assistant",
     page_icon="🎓",
@@ -23,9 +21,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ─────────────────────────────────────────────
 # Custom CSS for Premium Look
-# ─────────────────────────────────────────────
 st.markdown(
     """
 <style>
@@ -242,10 +238,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-
-# ─────────────────────────────────────────────
 # Session State Initialization
-# ─────────────────────────────────────────────
+
 if "learning_package" not in st.session_state:
     st.session_state.learning_package = None
 if "pdf_processed" not in st.session_state:
@@ -258,9 +252,9 @@ if "processing" not in st.session_state:
     st.session_state.processing = False
 
 
-# ─────────────────────────────────────────────
+
 # Config Validation
-# ─────────────────────────────────────────────
+
 missing_keys = validate_config()
 if missing_keys:
     st.error(
@@ -271,9 +265,9 @@ if missing_keys:
     st.stop()
 
 
-# ─────────────────────────────────────────────
+
 # Sidebar
-# ─────────────────────────────────────────────
+
 with st.sidebar:
     # App branding
     st.markdown(
@@ -307,8 +301,8 @@ with st.sidebar:
     )
 
     if uploaded_file is not None:
-        if st.button("⚡ Process PDF", use_container_width=True):
-            with st.spinner("📖 Reading and processing your PDF..."):
+        if st.button(" Process PDF", use_container_width=True):
+            with st.spinner(" Reading and processing your PDF..."):
                 try:
                     # Initialize vector store if needed
                     if st.session_state.vector_store is None:
@@ -321,21 +315,21 @@ with st.sidebar:
                     st.session_state.pdf_processed = True
                     st.session_state.chunks_count = len(chunks)
                     st.success(
-                        f"✅ Processed **{len(chunks)}** chunks from your PDF!"
+                        f" Processed **{len(chunks)}** chunks from your PDF!"
                     )
                 except Exception as e:
-                    st.error(f"❌ Error processing PDF: {str(e)}")
+                    st.error(f" Error processing PDF: {str(e)}")
 
     # ── Knowledge Base Status ──
     st.divider()
-    st.markdown("### 📊 Knowledge Base")
+    st.markdown("### Knowledge Base")
 
     if st.session_state.pdf_processed:
         st.markdown(
             f"""
         <div style="background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.3);
                     border-radius: 10px; padding: 0.8rem; text-align: center;">
-            <div style="font-size: 1.5rem;">📚</div>
+            <div style="font-size: 1.5rem;"></div>
             <div style="color: #6ee7a0; font-weight: 600; font-size: 0.9rem;">
                 Documents Loaded</div>
             <div style="color: #4ade80; font-size: 1.4rem; font-weight: 700;">
@@ -349,7 +343,7 @@ with st.sidebar:
             """
         <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
                     border-radius: 10px; padding: 0.8rem; text-align: center;">
-            <div style="font-size: 1.5rem;">📭</div>
+            <div style="font-size: 1.5rem;"></div>
             <div style="color: #8888b0; font-size: 0.85rem;">
                 No documents loaded yet.<br/>
                 Upload a PDF or ask any question!</div>
@@ -360,15 +354,15 @@ with st.sidebar:
 
     # ── How it Works ──
     st.divider()
-    with st.expander("ℹ️ How EduGPT Works", expanded=False):
+    with st.expander(" How EduGPT Works", expanded=False):
         st.markdown(
             """
         **4 AI Agents work together:**
 
-        1. 🔍 **Retriever** — Finds relevant info
-        2. 📄 **Summarizer** — Creates study notes
-        3. 🧑‍🏫 **Explainer** — Personal tutor explanation
-        4. ❓ **Quiz Master** — Tests your understanding
+        1.  **Retriever** — Finds relevant info
+        2.  **Summarizer** — Creates study notes
+        3.  **Explainer** — Personal tutor explanation
+        4.  **Quiz Master** — Tests your understanding
 
         *Upload a PDF or just ask a question!*
         """
@@ -383,7 +377,7 @@ with st.sidebar:
 st.markdown(
     """
 <div class="hero-title">
-    <h1>🎓 EduGPT</h1>
+    <h1>EduGPT</h1>
     <p>Transform any topic into a complete learning experience — notes, explanations, and quizzes.</p>
 </div>
 """,
@@ -394,13 +388,13 @@ st.markdown(
 st.markdown(
     """
 <div class="agent-pipeline" style="justify-content: center; margin-bottom: 1.5rem;">
-    <div class="agent-badge">🔍 Retriever</div>
+    <div class="agent-badge"> Retriever</div>
     <div style="color: #555; display: flex; align-items: center;">→</div>
-    <div class="agent-badge">📄 Summarizer</div>
+    <div class="agent-badge"> Summarizer</div>
     <div style="color: #555; display: flex; align-items: center;">→</div>
-    <div class="agent-badge">🧑‍🏫 Explainer</div>
+    <div class="agent-badge"> Explainer</div>
     <div style="color: #555; display: flex; align-items: center;">→</div>
-    <div class="agent-badge">❓ Quiz Master</div>
+    <div class="agent-badge"> Quiz Master</div>
 </div>
 """,
     unsafe_allow_html=True,
@@ -412,7 +406,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 question = st.text_input(
-    "🔍 What would you like to learn about?",
+    "What would you like to learn about?",
     placeholder="Specify only the topic or question",
     key="question_input",
 )
@@ -420,7 +414,7 @@ question = st.text_input(
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     generate_btn = st.button(
-        "🚀 Generate Learning Package",
+        " Generate Learning Package",
         type="primary",
         use_container_width=True,
         key="generate_btn",
@@ -433,62 +427,62 @@ st.markdown("</div>", unsafe_allow_html=True)
 # ─────────────────────────────────────────────
 if generate_btn:
     if not question.strip():
-        st.warning("⚡ Please enter a topic or question to get started!")
+        st.warning(" Please enter a topic or question to get started!")
     else:
         # Initialize vector store if needed
         if st.session_state.vector_store is None:
             try:
                 st.session_state.vector_store = get_vector_store()
             except Exception as e:
-                st.error(f"❌ Failed to connect to AstraDB: {str(e)}")
+                st.error(f" Failed to connect to AstraDB: {str(e)}")
                 st.stop()
 
         # ── Run the Agent Pipeline ──
-        with st.status("🤖 AI Agents are working on your learning package...", expanded=True) as status:
+        with st.status(" AI Agents are working on your learning package...", expanded=True) as status:
 
             # Step 1: Retriever Agent
-            st.write("🔍 **Retriever Agent** — Searching for relevant information...")
+            st.write(" **Retriever Agent** — Searching for relevant information...")
             try:
                 context, source = retrieve(question, st.session_state.vector_store)
                 if source == "database":
-                    st.write("   ✅ Found relevant content from your uploaded documents")
+                    st.write("Found relevant content from your uploaded documents")
                 elif source == "database + web":
-                    st.write("   ✅ Found content from your documents + web search")
+                    st.write("Found content from your documents + web search")
                 else:
-                    st.write("   ✅ Found relevant content from web sources")
+                    st.write(" Found relevant content from web sources")
             except Exception as e:
-                st.error(f"❌ Retriever Agent failed: {str(e)}")
+                st.error(f"Retriever Agent failed: {str(e)}")
                 st.stop()
 
             # Step 2: Summarizer Agent
-            st.write("📄 **Summarizer Agent** — Creating concise study notes...")
+            st.write(" **Summarizer Agent** — Creating concise study notes...")
             try:
                 notes = summarize(context, question)
-                st.write("   ✅ Study notes ready")
+                st.write(" Study notes ready")
             except Exception as e:
-                st.error(f"❌ Summarizer Agent failed: {str(e)}")
+                st.error(f" Summarizer Agent failed: {str(e)}")
                 st.stop()
 
             # Step 3: Explainer Agent
-            st.write("🧑‍🏫 **Explainer Agent** — Preparing personal explanation...")
+            st.write(" **Explainer Agent** — Preparing personal explanation...")
             try:
                 explanation = explain(notes, question)
-                st.write("   ✅ Explanation ready")
+                st.write(" Explanation ready")
             except Exception as e:
-                st.error(f"❌ Explainer Agent failed: {str(e)}")
+                st.error(f"Explainer Agent failed: {str(e)}")
                 st.stop()
 
             # Step 4: Quiz Generator Agent
             st.write("❓ **Quiz Master** — Generating quiz questions...")
             try:
                 quiz = generate_quiz(notes, question)
-                st.write("   ✅ Quiz ready")
+                st.write(" Quiz ready")
             except Exception as e:
-                st.error(f"❌ Quiz Generator failed: {str(e)}")
+                st.error(f" Quiz Generator failed: {str(e)}")
                 st.stop()
 
             status.update(
-                label="✅ Learning package is ready!", state="complete", expanded=False
+                label=" Learning package is ready!", state="complete", expanded=False
             )
 
         # Store results
@@ -514,11 +508,11 @@ if st.session_state.learning_package:
         f"""
     <div style="text-align: center; margin: 1rem 0;">
         <h2 style="color: #e0e0ff; font-weight: 700; margin-bottom: 0.3rem;">
-            📦 Your Learning Package</h2>
+            Your Learning Package</h2>
         <p style="color: #8888b0; font-size: 1rem; margin-bottom: 0.8rem;">
             <em>{pkg['topic']}</em></p>
         <div class="source-badge {'web' if pkg['source'] == 'web' else ''}">
-            {'🌐 Source: Web Search' if pkg['source'] == 'web' else '📚 Source: Your Documents'}
+            {'Source: Web Search' if pkg['source'] == 'web' else ' Source: Your Documents'}
         </div>
     </div>
     """,
@@ -527,7 +521,7 @@ if st.session_state.learning_package:
 
     # ── Tabbed Content ──
     tab_notes, tab_explain, tab_quiz = st.tabs(
-        ["📄 Study Notes", "🧑‍🏫 Explanation", "❓ Quiz"]
+        [" Study Notes", " Explanation", " Quiz"]
     )
 
     with tab_notes:
@@ -539,7 +533,7 @@ if st.session_state.learning_package:
 
         # Download notes button
         st.download_button(
-            label="📥 Download Notes",
+            label=" Download Notes",
             data=pkg["notes"],
             file_name=f"edugpt_notes_{pkg['topic'][:30].replace(' ', '_')}.md",
             mime="text/markdown",
@@ -554,7 +548,7 @@ if st.session_state.learning_package:
 
         # Download explanation button
         st.download_button(
-            label="📥 Download Explanation",
+            label=" Download Explanation",
             data=pkg["explanation"],
             file_name=f"edugpt_explanation_{pkg['topic'][:30].replace(' ', '_')}.md",
             mime="text/markdown",
@@ -569,7 +563,7 @@ if st.session_state.learning_package:
 
         # Download quiz button
         st.download_button(
-            label="📥 Download Quiz",
+            label=" Download Quiz",
             data=pkg["quiz"],
             file_name=f"edugpt_quiz_{pkg['topic'][:30].replace(' ', '_')}.md",
             mime="text/markdown",
@@ -596,7 +590,7 @@ if st.session_state.learning_package:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.download_button(
-            label="📦 Download Complete Learning Package",
+            label=" Download Complete Learning Package",
             data=full_package,
             file_name=f"edugpt_complete_{pkg['topic'][:30].replace(' ', '_')}.md",
             mime="text/markdown",
