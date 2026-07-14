@@ -5,22 +5,18 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 load_dotenv()
 
-# ─────────────────────────────────────────────
 # Environment Variables
-# ─────────────────────────────────────────────
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 ASTRA_DB_API_ENDPOINT = os.getenv("ASTRA_DB_API_ENDPOINT")
 ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
 ASTRA_DB_COLLECTION_NAME = os.getenv("ASTRA_DB_COLLECTION_NAME", "edugpt_docs")
 
-# ─────────────────────────────────────────────
+
 # Model Configuration
-# ─────────────────────────────────────────────
-# LLM: Groq (free, fast) — uses Llama models
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
-# Embeddings: Google Gemini (still free — embedding quota is separate from LLM quota)
+# Embeddings
 MAX_RETRIES = 3
 RETRY_DELAY = 30
 
@@ -52,7 +48,7 @@ def get_llm(temperature=0.7):
 
 
 def get_embeddings():
-    """Initialize and return the Gemini Embeddings model (separate free quota)."""
+    """Initialize and return the Gemini Embeddings model."""
     return GoogleGenerativeAIEmbeddings(
         model="models/gemini-embedding-001",
         google_api_key=GOOGLE_API_KEY,
