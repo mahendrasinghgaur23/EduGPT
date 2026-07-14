@@ -1,4 +1,4 @@
-<h1 align="center">🎓 EduGPT — AI Study Assistant</h1>
+<h1 align="center">🎓 EduGPT — Multi-Agent AI Study Assistant</h1>
 
 <p align="center">
   <em>A Multi-Agent RAG-Powered Study Assistant that transforms any topic into a complete learning package — Notes, Explanations & Quizzes.</em>
